@@ -7,6 +7,28 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+  if (str) {
+
+    /**  Solution #1:   */
+    let newString = str.split('').reduce((rev, char) => char + rev, '');
+    // return newString === str ? true : false;
+    return newString === str;
+
+
+    /** Solution #2: This is a slow solution because each charcter is 
+     * being compared with the character closest to its position.
+     * 
+     * The every() method tests whether all elements in the array pass 
+     * the test implemented by the provided function. It returns a Boolean
+     * value.
+     * 
+    return str.split('').every((char, i) => {
+      return char === str[str.length - i - 1]
+    })
+
+    */
+  }
+}
 
 module.exports = palindrome;
