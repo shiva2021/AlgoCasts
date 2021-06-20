@@ -10,8 +10,9 @@
 
 function chunk(array, size) {
 
-  /** SOLUTION# 1 */
-  let arr = [];
+  /** SOLUTION# 1 
+  
+  let chunked = [];
   let loopArray = [];
   let counter = 0;
 
@@ -22,7 +23,7 @@ function chunk(array, size) {
     for (let el of array) {
 
       if (counter == size) {
-        arr.push(loopArray);
+        chunked.push(loopArray);
 
         loopArray = [];
         counter = 0;
@@ -32,13 +33,31 @@ function chunk(array, size) {
       counter++;
     }
 
-    arr.push(loopArray);
+    chunked.push(loopArray);
 
 
-    console.log(arr)
-    return arr;
+    console.log(chunked)
+    return chunked;
+  }
+  
+  */
+
+
+  /** SOLUTION# 2 */
+  let chunked = [];
+
+
+  for (const element of array) {
+    let last = chunked[chunked.length - 1]
+
+    if(!last || last.length === size){
+      chunked.push([element])
+    }else{
+      last.push(element)
+    }
   }
 
+  return chunked;
 }
 
 module.exports = chunk;
