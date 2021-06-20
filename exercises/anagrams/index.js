@@ -34,8 +34,7 @@
 
 /** Solution #3 */
 function anagrams(stringA, stringB) {
-    if(cleanUp(stringB) === cleanUp(stringA)) return true;
-    return false;
+    return cleanUp(stringB) === cleanUp(stringA)
 }
 
 function cleanUp(string){
