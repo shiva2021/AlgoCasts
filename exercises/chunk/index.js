@@ -43,7 +43,7 @@ function chunk(array, size) {
   */
 
 
-  /** SOLUTION# 2 */
+  /** SOLUTION# 2 
   let chunked = [];
 
 
@@ -58,6 +58,21 @@ function chunk(array, size) {
   }
 
   return chunked;
+/*
+
+
+  /** SOLUTION# 3 */
+  let chunked = [];
+  let lastIndex = 0;
+
+  while (lastIndex < array.length) {
+    chunked.push(array.slice(lastIndex, lastIndex + size))
+    lastIndex += size;
+  }
+
+  console.log(chunked);
+  return chunked;
+  
 }
 
 module.exports = chunk;
