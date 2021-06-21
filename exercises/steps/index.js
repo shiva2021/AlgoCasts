@@ -17,10 +17,30 @@
 //       '### '
 //       '####'
 
+function steps(n, row=0, stairs = '') {
+    if(row === n){
+        return
+    }
+
+    if(n == stairs.length) {
+        console.log(stairs)
+        return steps(n, row + 1)
+    }
+
+    let add = stairs.length <= row ? '#' : ' ';
+    steps (n, row, stairs + add)
+}
+
+steps(2)
+
+module.exports = steps;
+
+
+/** 
 function steps(n) {
-    for(let row=0; row < n; row++){
+    for(let row=1; row <= n; row++){
         let steps = '';
-        for(let column=0; column < n; column++){
+        for(let column=1; column <= n; column++){
             if(row >= column) steps += "#";
             else steps += ' ';
         }
@@ -28,7 +48,4 @@ function steps(n) {
         console.log(steps)
     }
 }
-
-steps(2)
-
-module.exports = steps;
+*/
