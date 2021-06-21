@@ -24,7 +24,7 @@ function capitalize(str) {
     let array = str.split(' ');
     let capitalized='';
     for (let i in array) {
-        // capitalized += array[i][0].toUpperCase() + array[i].substr(1, array[i].length) + ' ';
+        // capitalized += array[i][0].toUpperCase() + array[i].substr(1, array[i].length) + ' '; (ALSO CORRECT)
         capitalized += array[i][0].toUpperCase() + array[i].slice(1) + ' ';
     }
     return capitalized.trim();
