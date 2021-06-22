@@ -8,19 +8,7 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-    let vow = {
-        "a":0,
-        "e":0,
-        "i":0,
-        "o":0,
-        "u":0
-    }
-
-    let arr = str.split('');
-    let newarr = arr.filter((d)=>{
-        if(vow.hasOwnProperty(d.toLowerCase())) return d
-    });
-    return newarr.length;
+    if(str) return str.match(/[a,e,i,o,u,A,E,I,O,U]/g) ? str.match(/[a,e,i,o,u,A,E,I,O,U]/g).length: 0;
 }
 
 module.exports = vowels;
@@ -40,3 +28,24 @@ module.exports = vowels;
 //     for(let i in arr) if(vow.hasOwnProperty(arr[i].toLowerCase())) newarr.push(vow[arr[i]])
 //     return newarr.length;
 // }
+
+
+/** Solution #2 
+ * 
+ * 
+ function vowels(str) {
+    let vow = {
+        "a":"",
+        "e":"",
+        "i":"",
+        "o":"",
+        "u":""
+    }
+
+    let arr = str.split('');
+    let newarr = arr.filter((d)=>{
+        if(vow.hasOwnProperty(d.toLowerCase())) return d
+    });
+    return newarr.length;
+}
+*/
