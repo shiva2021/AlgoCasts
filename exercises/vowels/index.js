@@ -7,6 +7,19 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-function vowels(str) {}
+function vowels(str) {
+    let vow = {
+        "a":0,
+        "e":0,
+        "i":0,
+        "o":0,
+        "u":0
+    }
+
+    let arr = str.split('');
+    let newarr = [];
+    for(let i in arr) if(vow.hasOwnProperty(arr[i].toLowerCase())) newarr.push(vow[arr[i]])
+    return newarr.length;
+}
 
 module.exports = vowels;
