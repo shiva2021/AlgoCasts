@@ -8,7 +8,8 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-    return str.toLowerCase().match(/[a,e,i,o,u]/g) ? str.toLowerCase().match(/[a,e,i,o,u]/g).length: 0;
+    /** 'i' in regex means case-insesitive. */
+    return str.match(/[aeiou]/gi) ? str.match(/[aeiou]/gi).length: 0;
 }
 
 module.exports = vowels;
@@ -68,5 +69,23 @@ function vowels(str) {
     }
 
     return count;
+}
+*/
+
+/** Solution # 5
+function vowels(str) {
+    let count = 0;
+    let vow = ["a","e","i", "o", "u"];
+    for (const d of str) {
+        if(vow.includes(d.toLowerCase())) count++
+    }
+
+    return count;
+}
+*/
+
+/** Solution #6
+ function vowels(str) {
+    return str.toLowerCase().match(/[a,e,i,o,u]/g) ? str.toLowerCase().match(/[a,e,i,o,u]/g).length: 0;
 }
 */
