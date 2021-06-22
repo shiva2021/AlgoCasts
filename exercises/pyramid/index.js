@@ -19,6 +19,8 @@ function pyramid(n, row=0, string='') {
 
     if(string.length === n*2-1){
         console.log(string)
+
+        /** this is where string resets. That's why we dont pass the string in the function */
         return pyramid(n, row+1)
     }
 
