@@ -14,6 +14,25 @@
 //       ' ### '
 //       '#####'
 
+function pyramid(n, row=0, string='') {
+    if(n === row) return;
+
+    if(string.length === n*2-1){
+        console.log(string)
+        return pyramid(n, row+1)
+    }
+
+    let midpoint =  Math.floor((n*2-1)/2);
+    if(midpoint+row >= string.length && midpoint-row <= string.length) string += '#';
+    else string += ' ';
+
+    return pyramid(n, row, string)
+}
+
+module.exports = pyramid;
+
+
+/** 
 function pyramid(n) {
     let midpoint = Math.floor((n*2-1)/2);
     for(let row=0; row < n; row++){
@@ -28,5 +47,4 @@ function pyramid(n) {
         console.log(steps)
     }
 }
-
-module.exports = pyramid;
+ */
