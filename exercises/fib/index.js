@@ -9,18 +9,34 @@
 //   fib(4) === 3
 
 
-function fib(n){
-    let result = [0, 1];
-    for(let i=2; i<=n; i++){
-        result.push(result[i-1]+result[i-2])
-    }
+//Efficient Solution
 
-    return result[n]
+function memoize(fn){
+    let cache = {};
+    return function(...args){
+        if(cache[args]) {
+            return cache[args]
+        }
+
+        let result = fn.apply(this, args)
+        cache[args] = result;
+        return result;
+    }
 }
 
-fib(4)
+function slowfib(n){
+    if(n < 2){
+        return n
+    } 
+    
+    return fib(n-1) + fib(n-2)
+ 
+ }
 
-module.exports = fib;
+let fib = memoize(slowfib)
+fib(6)
+
+module.exports = slowfib;
 
 /** Solution #1: Iterative 
 
@@ -69,3 +85,52 @@ function fib(n, map = {}, i = 0){
 }
 
 */
+
+/** Solution: 4
+
+function fib(n){
+    let result = [0, 1];
+    for(let i=2; i<=n; i++){
+        result.push(result[i-1]+result[i-2])
+    }
+
+    return result[n]
+}
+
+*/
+
+/** Solution 5: Recursion My 2nd solution
+
+function fib(n, result=[], i=0){
+    if(n < i){
+        return result[n]
+    } 
+    
+    if(result.length >= 2 ){
+     result.push(result[i-1] + result[i-2])
+     i++
+     return fib(n, result, i)
+    }
+
+    result = [0, 1]
+    i = 2;
+    return fib(n, result, i) 
+ 
+ }
+
+ */
+
+
+ /** FINAL Solution: 6 ==> RECURSION (A VERY BAD SOLUTION) 
+
+ function fib(n, result=[], i=0){
+    if(n < 2){
+        return n
+    } 
+    
+    return fib(n-1) + fib(n-2)
+ }
+
+
+ RUNTIME COMPLEXITY==> Exponential
+ */
