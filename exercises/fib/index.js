@@ -8,24 +8,14 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n, map = {}, i = 0){
-    if(n === i){
-        return map['next']
-    }
-    i++;
-    if(map['next']){
-        let next = map['previous'] + map['next'] 
-        map['previous'] = map['next'];
-        map['next'] = next;
 
-        return fib(n, map, i)
+function fib(n){
+    let result = [0, 1];
+    for(let i=2; i<=n; i++){
+        result.push(result[i-1]+result[i-2])
     }
 
-    map = {
-        previous:0,
-        next: i
-    }
-    return fib(n, map, i)
+    return result[n]
 }
 
 fib(4)
