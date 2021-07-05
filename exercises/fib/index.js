@@ -8,6 +8,32 @@
 // Example:
 //   fib(4) === 3
 
+function fib(n, map = {}, i = 0){
+    if(n === i){
+        return map['next']
+    }
+    i++;
+    if(map['next']){
+        let next = map['previous'] + map['next'] 
+        map['previous'] = map['next'];
+        map['next'] = next;
+
+        return fib(n, map, i)
+    }
+
+    map = {
+        previous:0,
+        next: i
+    }
+    return fib(n, map, i)
+}
+
+fib(4)
+
+module.exports = fib;
+
+/** Solution #1: Iterative 
+
 function fib(n){
     let fib = []    
     let map = {
@@ -30,7 +56,29 @@ function fib(n){
     
     return map['next']
 }
+*/
 
-fib(4)
 
-module.exports = fib;
+/** SOLUTION 2: Recursive 
+
+function fib(n, map = {}, i = 0){
+    if(n === i){
+        return map['next']
+    }
+    i++;
+    if(map['next']){
+        let next = map['previous'] + map['next'] 
+        map['previous'] = map['next'];
+        map['next'] = next;
+
+        return fib(n, map, i)
+    }
+
+    map = {
+        previous:0,
+        next: i
+    }
+    return fib(n, map, i)
+}
+
+*/
