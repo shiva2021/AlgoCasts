@@ -35,15 +35,12 @@ module.exports = fib;
 /** Solution #1: Iterative 
 
 function fib(n){
-    let fib = []    
     let map = {
         previous: 0,
         next: 0
     }
     
-    for(let i=0; i<n; i++){
-        fib.push(map['next'])
-        
+    for(let i=0; i<n; i++){       
         let next =  map['previous'] + map['next'];
         map['previous'] = map['next'];    
         
