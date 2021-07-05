@@ -8,6 +8,29 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n){
+    let fib = []    
+    let map = {
+        previous: 0,
+        next: 0
+    }
+    
+    for(let i=0; i<n; i++){
+        fib.push(map['next'])
+        
+        let next =  map['previous'] + map['next'];
+        map['previous'] = map['next'];    
+        
+        if(!map['next']){
+            map['next'] = map['next'] + 1; 
+        }else{
+            map['next'] = next
+        }
+    }
+    
+    return map['next']
+}
+
+fib(4)
 
 module.exports = fib;
