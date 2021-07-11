@@ -82,14 +82,56 @@ class LinkedList {
         let counter = 0
         while (data) {
             if (counter === idx){
-                console.log('datais ',data)
-                console.log('head is ',this.head)
                 return data
             }
             data = data.next
             counter++
         }
         return null;
+    }
+
+    removeAt(idx){
+        if(!this.head) return null
+        if(idx > this.size()-1) return null 
+        if(idx==0){
+            return this.head = this.head.next
+        }
+        let prevNode = this.getAt(idx-1);
+        let nextNode = this.getAt(idx+1);
+
+        prevNode.next = nextNode;
+
+        return prevNode;
+    }
+
+    insertAt(data, idx){
+        console.log(this.head, data, idx)
+        if(!this.head || idx == 0) return this.insertFirst(data)
+        
+        if(idx > this.size()-1 || idx === this.size()-1) return this.insertLast(data)
+
+        let previous = this.getAt(idx-1)
+        let node = new Node(data, previous.next);
+        previous.next = node ;
+
+    }
+
+    forEach (fn){
+        let data = this.head
+        let counter = 0
+        while (data){
+            fn(data, counter)
+            data = data.next
+            counter++ 
+        }
+    }
+
+    *[Symbol.iterator](){
+        let node = this.head;
+        while(node){
+            yield node
+            node = node.next
+        }
     }
 }
 
