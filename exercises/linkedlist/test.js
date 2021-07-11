@@ -143,13 +143,12 @@ describe('InsertLast', () => {
     l.insertLast('b');
     l.insertLast('c');
     l.insertLast('d');
-
-    expect(l.size()).toEqual(2);
+    
     expect(l.getLast().data).toEqual('d');
   });
 });
 
-describe.skip('GetAt', () => {
+describe('GetAt', () => {
   test('returns the node at given index', () => {
     const l = new List();
     expect(l.getAt(10)).toEqual(null);
