@@ -18,7 +18,7 @@ class Events {
   // Trigger all callbacks associated
   // with a given eventName
   trigger(eventName) {
-      let callbacks = this.events[eventName];
+      let callbacks = this.events[eventName] || [];
       for(let callback of callbacks){
           (callback)()
       }
