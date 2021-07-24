@@ -20,7 +20,7 @@ class Events {
   trigger(eventName) {
       let callbacks = this.events[eventName] || [];
       for(let callback of callbacks){
-          (callback)()
+          callback()
       }
   }
 
