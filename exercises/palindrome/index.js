@@ -31,4 +31,10 @@ function palindrome(str) {
   }
 }
 
+/** SOLUTION #3 --> LATEST*/
+function palindrome(str) {
+    if(str === str.split('').reverse().join().replace(new RegExp(/\,/g), "")) return true;
+    return false
+}
+
 module.exports = palindrome;
