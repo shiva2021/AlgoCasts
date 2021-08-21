@@ -10,40 +10,40 @@
 
 function chunk(array, size) {
 
-  /** SOLUTION# 1 
-  
-  let chunked = [];
-  let loopArray = [];
-  let counter = 0;
+    /** SOLUTION# 1 
+    
+    let chunked = [];
+    let loopArray = [];
+    let counter = 0;
 
-  if (array.length > 0) {
+    if (array.length > 0) {
 
-    if (size > array.length) return array;
+      if (size > array.length) return array;
 
-    for (let el of array) {
+      for (let el of array) {
 
-      if (counter == size) {
-        chunked.push(loopArray);
+        if (counter == size) {
+          chunked.push(loopArray);
 
-        loopArray = [];
-        counter = 0;
+          loopArray = [];
+          counter = 0;
+        }
+
+        loopArray.push(el)
+        counter++;
       }
 
-      loopArray.push(el)
-      counter++;
+      chunked.push(loopArray);
+
+
+      console.log(chunked)
+      return chunked;
     }
-
-    chunked.push(loopArray);
-
-
-    console.log(chunked)
-    return chunked;
-  }
-  
-  */
+    
+    */
 
 
-  /** SOLUTION# 2 
+    /** SOLUTION# 2 
   let chunked = [];
 
 
@@ -61,7 +61,7 @@ function chunk(array, size) {
 /*
 
 
-  /** SOLUTION# 3 */
+  /** SOLUTION# 3 
   let chunked = [];
   let lastIndex = 0;
 
@@ -73,6 +73,23 @@ function chunk(array, size) {
   console.log(chunked);
   return chunked;
   
+}
+*/
+
+
+    /** SOLUTION #4 --> LATEST  
+    function chunk(array, size) {
+        if (size >= array.length) return array;
+
+        let chunks = [];
+        while (array.length) {
+            chunks.push(array.slice(0, size))
+            array = array.slice(size)
+        }
+        return chunks
+
+    }
+    */
 }
 
 module.exports = chunk;
